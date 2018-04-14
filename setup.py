@@ -63,7 +63,9 @@ else:
     ext_modules = [NumpyExtension('lbfgs._lowlevel',
                                   ['lbfgs/_lowlevel.c', 'liblbfgs/lbfgs.c'],
                                   include_dirs=include_dirs)]
-
+    
+print(ext_modules[0].include_dirs)
+    
 setup(
     name="PyLBFGS",
     version="0.2.0.5",

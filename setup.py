@@ -51,7 +51,7 @@ class NumpyExtension(Extension):
                             set_include_dirs,
                             del_include_dirs)
 
-
+import numpy
 include_dirs = ['liblbfgs'] + [numpy.get_include()]
 
 if use_cython:

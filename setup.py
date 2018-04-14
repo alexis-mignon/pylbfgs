@@ -19,7 +19,7 @@ class custom_build_ext(build_ext):
             compiler = get_default_compiler()
         else:
             compiler = self.compiler
-
+        print("Compiler", compiler)
         if compiler == 'msvc':
             include_dirs.append('compat/win32')
 

@@ -52,17 +52,17 @@ class NumpyExtension(Extension):
                             del_include_dirs)
 
 
-include_dirs = ['liblbfgs']
+include_dirs = ['liblbfgs'] + [numpy.get_include()]
 
 if use_cython:
     ext_modules = cythonize(
-        [NumpyExtension('lbfgs._lowlevel',
+        [Extension('lbfgs._lowlevel',
                         ['lbfgs/_lowlevel.pyx', 'liblbfgs/lbfgs.c'],
                         include_dirs=include_dirs)])
 else:
-    ext_modules = [NumpyExtension('lbfgs._lowlevel',
-                                  ['lbfgs/_lowlevel.c', 'liblbfgs/lbfgs.c'],
-                                  include_dirs=include_dirs)]
+    ext_modules = [Extension('lbfgs._lowlevel',
+                             ['lbfgs/_lowlevel.c', 'liblbfgs/lbfgs.c'],
+                              include_dirs=include_dirs)]
     
 print(ext_modules[0].include_dirs)
     

@@ -22,6 +22,7 @@ class custom_build_ext(build_ext):
         print("Compiler", compiler)
         if compiler == 'msvc':
             include_dirs.append('compat/win32')
+        print(include_dirs)
 
 
 # from Michael Hoffman's http://www.ebi.ac.uk/~hoffman/software/sunflower/
